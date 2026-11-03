@@ -1,4 +1,4 @@
-from app import app              # importa o objeto Flask do app.py
+from app import app  # importa o objeto Flask do app.py
 
 
 def test_health():
