@@ -20,7 +20,6 @@ jobs:
           cache-dependency-path: |           
             requirements.txt
             requirements-dev.txt
-
       - name: Instalar as dependências       
         run: pip install -r requirements.txt -r requirements-dev.txt
 
@@ -29,3 +28,17 @@ jobs:
 
       - name: Rodar os testes
         run: pytest -v
+  docker:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Lint do Dockerfile
+        uses: hadolint/hadolint-action@v3.4.0
+        with:
+          dockerfile: Dockerfile
+
+      - name: Build da imagem
+        run: docker build -t ci-cd01 .      

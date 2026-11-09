@@ -1,0 +1,11 @@
+.git
+tests
+.pytest_cache
+requirements-dev.txt
+__pycache__
+.github
+.gitignore
+.gitattributes
+README.md
+Dockerfile
+.venv
