@@ -13,5 +13,5 @@ def version():
     return jsonify({"version": os.environ.get('APP_VERSION', 'dev')})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
 
